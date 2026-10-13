@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>potfole</title>
+	<style>
+		
+:root {
+    --bg: #0b0b0b;
+    --surface: #141414;
+    --surface-light: #1b1b1b;
+    --gold: #F2A900;
+    --white: #ffffff;
+    --muted: #a1a1a1;
+    --border: #292929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 8%;
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 11, 11, 0.95);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span,
+.section-heading h2 span,
+.hero h1 span,
+.contact h2 span {
+    color: var(--gold);
+}
+
+.navbar {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    color: #c7c7c7;
+    font-size: 13px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--gold);
+}
+
+.nav-btn {
+    border: 1px solid var(--gold);
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+.hero {
+    min-height: 690px;
+    padding: 100px 8%;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--gold);
+}
+
+.hero h1 {
+    font-size: clamp(38px, 4.5vw, 66px);
+    line-height: 1.18;
+    letter-spacing: -2px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    max-width: 550px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.primary-btn {
+    display: inline-block;
+    padding: 14px 23px;
+    background: var(--gold);
+    color: #111;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+.text-btn {
+    color: #e2e2e2;
+    font-size: 13px;
+    transition: color 0.3s;
+}
+
+.text-btn:hover {
+    color: var(--gold);
+}
+
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    border-top: 1px solid var(--border);
+    margin-top: 55px;
+    padding-top: 25px;
+}
+
+.hero-stats h3 {
+    font-size: 18px;
+}
+
+.hero-stats h3 span {
+    color: var(--gold);
+}
+
+.hero-stats p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.hero-visual {
+    position: relative;
+    min-height: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-glow {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: var(--gold);
+    filter: blur(140px);
+    opacity: 0.13;
+}
+
+.visual-card {
+    width: 100%;
+    max-width: 390px;
+    min-height: 360px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(145deg, #242424, #101010);
+    border: 1px solid #383838;
+    border-radius: 12px;
+    overflow: hidden;
+    transform: rotate(2deg);
+    box-shadow: 0 30px 80px #0008;
+}
+
+.visual-top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.visual-top > span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #555;
+}
+
+.visual-top > span:first-child {
+    background: var(--gold);
+}
+
+.visual-top p {
+    margin-left: auto;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+.visual-body {
+    padding: 55px 30px 30px;
+    position: relative;
+}
+
+.small-label {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.visual-body h2 {
+    font-size: 46px;
+    line-height: 1.2;
+}
+
+.visual-body h2 span {
+    color: var(--gold);
+}
+
+.visual-line {
+    height: 2px;
+    width: 70px;
+    background: var(--gold);
+    margin-top: 25px;
+}
+
+.visual-caption {
+    color: #aaa;
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+.visual-symbol {
+    position: absolute;
+    right: 25px;
+    bottom: 15px;
+    font-size: 55px;
+    font-weight: 800;
+    color: #ffffff0c;
+}
+
+.floating-tag {
+    position: absolute;
+    bottom: 20px;
+    right: -10px;
+    z-index: 2;
+    padding: 13px 18px;
+    border: 1px solid #373737;
+    border-radius: 5px;
+    background: #171717;
+    font-size: 11px;
+}
+
+.floating-tag span {
+    color: var(--gold);
+    margin-right: 7px;
+}
+
+.marquee {
+    padding: 23px 8%;
+    background: var(--gold);
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.marquee span {
+    color: #111;
+}
+
+.section {
+    padding: 110px 8%;
+}
+
+.section-label {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2,
+.contact h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.3;
+    letter-spacing: -1px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    border-bottom: 1px solid var(--border);
+}
+
+.about-content p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.skills {
+    background: #101010;
+}
+
+.section-description {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 45px;
+}
+
+.skill-card {
+    position: relative;
+    padding: 30px 22px;
+    min-height: 210px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-7px);
+}
+
+.skill-number {
+    color: var(--gold);
+    font-size: 11px;
+}
+
+.skill-card h3 {
+    font-size: 19px;
+    margin: 24px 0 10px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.skill-icon {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    font-size: 24px;
+    color: var(--gold);
+    opacity: 0.8;
+}
+
+.projects {
+    border-top: 1px solid var(--border);
+}
+
+.projects-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.project-card {
+    min-width: 0;
+}
+
+.project-preview {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.project-card:hover .project-preview {
+    transform: translateY(-5px);
+}
+
+.preview-one {
+    background: #e8e4dc;
+    color: #202020;
+    padding: 20px;
+}
+
+.mock-header {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.mock-header span {
+    color: #b17a00;
+}
+
+.mock-content {
+    margin-top: 40px;
+}
+
+.mock-content p {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.mock-content h3 {
+    font-size: clamp(24px, 2.4vw, 35px);
+    line-height: 1.2;
+    margin: 12px 0 20px;
+}
+
+.mock-button {
+    display: inline-block;
+    padding: 9px 12px;
+    background: #222;
+    color: white;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.preview-two {
+    background: linear-gradient(140deg, #5a0808, #180606);
+    padding: 20px;
+}
+
+.shop-top {
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+
+.shoe-shape {
+    position: absolute;
+    top: 42px;
+    right: 20px;
+    width: 135px;
+    height: 135px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid #ffffff35;
+    background: #ffffff0b;
+    font-size: 65px;
+    font-weight: 800;
+    font-style: italic;
+    color: #ffffff75;
+    transform: rotate(-15deg);
+}
+
+.shop-content {
+    position: absolute;
+    left: 20px;
+    bottom: 25px;
+}
+
+.shop-content p {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #e8b5a5;
+}
+
+.shop-content h3 {
+    font-size: 28px;
+    line-height: 1.15;
+    margin-top: 8px;
+}
+
+.preview-three {
+    background: linear-gradient(135deg, #272319, #101010);
+    padding: 20px;
+    border: 1px solid #3b3424;
+}
+
+.portfolio-mark {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.portfolio-mark span {
+    color: var(--gold);
+}
+
+.portfolio-content {
+    position: absolute;
+    left: 22px;
+    top: 105px;
+}
+
+.portfolio-content p {
+    font-size: 8px;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.portfolio-content h3 {
+    font-size: 27px;
+    line-height: 1.3;
+    margin-top: 10px;
+}
+
+.portfolio-footer {
+    position: absolute;
+    left: 22px;
+    bottom: 20px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+}
+
+.project-info h3 {
+    font-size: 15px;
+}
+
+.project-info p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.project-arrow {
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+}
+
+.project-note {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 30px;
+}
+
+.contact {
+    text-align: center;
+    background: radial-gradient(ellipse at center, #25200f 0%, #0b0b0b 65%);
+    border-top: 1px solid var(--border);
+}
+
+.contact h2 {
+    font-size: clamp(40px, 5vw, 65px);
+}
+
+.contact > p:not(.section-label) {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 20px auto 30px;
+    max-width: 500px;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 35px 8% 20px;
+}
+
+.footer > p {
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
+}
+
+.back-top {
+    text-align: right;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 15px;
+    text-align: center;
+    color: #777;
+    font-size: 10px;
+}
+
+@media (max-width: 1000px) {
+    .hero {
+        gap: 30px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-card:last-child {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 11px);
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        padding: 20px 6%;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .navbar {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 17px;
+        flex-wrap: wrap;
+    }
+
+    .navbar a {
+        font-size: 11px;
+    }
+
+    .nav-btn {
+        font-size: 11px;
+        padding: 8px 12px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 75px 7%;
+        gap: 30px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-visual {
+        min-height: 370px;
+    }
+
+    .visual-card {
+        max-width: 340px;
+    }
+
+    .floating-tag {
+        right: 0;
+    }
+
+    .hero-stats {
+        gap: 25px;
+    }
+
+    .marquee {
+        justify-content: center;
+        gap: 12px;
+        font-size: 9px;
+    }
+
+    .section {
+        padding: 75px 7%;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .projects-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card:last-child {
+        grid-column: auto;
+        max-width: 100%;
+    }
+
+    .project-preview {
+        min-height: 300px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .footer > p {
+        text-align: center;
+    }
+
+    .back-top {
+        text-align: center;
+    }
+
+    .copyright {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .hero-stats {
+        gap: 18px;
+    }
+
+    .visual-body h2 {
+        font-size: 38px;
+    }
+}
+/* NEW PREMIUM BACKGROUND */
+
+body {
+    background:
+        radial-gradient(
+            ellipse at 15% 10%,
+            rgba(116, 73, 18, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 90% 45%,
+            rgba(75, 43, 18, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #100f0d 0%,
+            #19150f 45%,
+            #0c0c0c 100%
+        );
+    color: #ffffff;
+}
+
+.header {
+    background: rgba(16, 15, 13, 0.92);
+    backdrop-filter: blur(15px);
+}
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 85% 45%,
+            rgba(242, 169, 0, 0.08),
+            transparent 35%
+        );
+}
+
+.about,
+.projects {
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.skills {
+    background: linear-gradient(
+        135deg,
+        #17130e,
+        #0e0e0e,
+        #19140c
+    );
+}
+
+.skill-card,
+.project-card {
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(8px);
+}
+
+.skill-card:hover,
+.project-card:hover {
+    box-shadow: 0 15px 40px rgba(242, 169, 0, 0.08);
+}
+
+.contact {
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(242, 169, 0, 0.14),
+            transparent 55%
+        ),
+        #100f0d;
+}
+
+/* SERVICES */
+
+.services {
+    background:
+        radial-gradient(
+            ellipse at 100% 0%,
+            rgba(242, 169, 0, 0.06),
+            transparent 40%
+        );
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.service-card {
+    position: relative;
+    min-height: 250px;
+    padding: 32px 25px;
+    background: linear-gradient(
+        145deg,
+        #211c14,
+        #121212
+    );
+    border: 1px solid #373026;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    border-color: #F2A900;
+    transform: translateY(-8px);
+}
+
+.service-card > span {
+    color: #F2A900;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.service-card h3 {
+    margin-top: 35px;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.service-card p {
+    color: #aaa;
+    font-size: 12px;
+    max-width: 280px;
+}
+
+.service-symbol {
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    color: #F2A900;
+    opacity: 0.12;
+    font-size: 65px;
+    font-weight: 800;
+}
+
+
+/* PROCESS */
+
+.process {
+    background: linear-gradient(
+        180deg,
+        #12100c,
+        #0c0c0c
+    );
+    border-top: 1px solid #30291d;
+    border-bottom: 1px solid #30291d;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 45px;
+}
+
+.process-item {
+    padding: 25px 20px;
+    border-top: 2px solid #44351b;
+    transition: 0.3s;
+}
+
+.process-item:hover {
+    border-color: #F2A900;
+    background: rgba(242, 169, 0, 0.035);
+}
+
+.process-item > span {
+    color: #F2A900;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.process-item h3 {
+    margin: 15px 0 10px;
+    font-size: 17px;
+}
+
+.process-item p {
+    color: #aaa;
+    font-size: 12px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .services-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: 220px;
+    }
+}
+}
+.skill-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px #F2A9000b;
+}
+
+.skill-icon {
+    display: block;
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.skill-tag {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-top: 18px;
+}
+.service-list {
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+}
+
+.service {
+    display: grid;
+    grid-template-columns: 60px 1fr 35px;
+    align-items: center;
+    gap: 20px;
+    padding: 27px 10px;
+    border-bottom: 1px solid var(--border);
+    transition: .3s;
+}
+
+.service:hover {
+    padding-left: 20px;
+    background: #F2A90008;
+}
+
+.service > span:first-child,
+.arrow {
+    color: var(--gold);
+}
+
+.service h3 {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.service p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.arrow {
+    font-size: 22px;
+}
+
+.projects {
+    background: #12110f;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 45px;
+}*/
+.project-image {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: .3s;
+.project-card:hover .project-image {
+    transform: translateY(-5px);
+}
+
+.business-image {
+    background: linear-gradient(135deg, #e9e3d8, #c5bba8);
+    color: #201d18;
+    padding: 20px;
+}
+.mock-nav {
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.mock-nav span {
+    color: #ad7800;
+}
+.mock-content {
+    margin-top: 45px;
+}*/
+
+.mock-content small,
+.store-copy small,
+.personal-copy small {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.mock-content h3 {
+    font-size: clamp(25px, 2.5vw, 35px);
+    line-height: 1.2;
+    margin: 13px 0 22px;
+}
+
+.mock-button {
+    padding: 8px 11px;
+    background: #24211b;
+    color: white;
+    font-size: 8px;
+}
+
+	</style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Babar Ameer Ali | Web Designer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="#home" class="logo">BABAR<span>.</span></a>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </nav>
+
+    <a href="#contact" class="nav-btn">Let's Talk ↗</a>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <p class="eyebrow">
+            <span class="dot"></span> AVAILABLE FOR PROJECTS
+        </p>
+
+        <h1>
+            I Create Modern
+            <span> & Professional</span>
+            Websites.
+        </h1>
+
+        <p class="hero-description">
+            I'm Babar Ameer Ali, a web designer focused on
+            creating clean, modern and responsive websites
+            that help businesses grow online.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="primary-btn">
+                Explore My Work ↗
+            </a>
+
+            <a href="#about" class="text-btn">
+                More About Me →
+            </a>
+        </div>
+
+        <div class="hero-stats">
+            <div>
+                <h3>HTML <span>+</span></h3>
+                <p>Web Structure</p>
+            </div>
+
+            <div>
+                <h3>CSS <span>+</span></h3>
+                <p>Modern Design</p>
+            </div>
+
+            <div>
+                <h3>WP <span>+</span></h3>
+                <p>WordPress</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="visual-glow"></div>
+
+        <div class="visual-card">
+            <div class="visual-top">
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>MY PORTFOLIO</p>
+            </div>
+
+            <div class="visual-body">
+                <p class="small-label">WEB DESIGNER</p>
+
+                <h2>Ideas Into<br>
+                    <span>Reality.</span>
+                </h2>
+
+                <div class="visual-line"></div>
+
+                <p class="visual-caption">
+                    Design. Develop. Deliver.
+                </p>
+
+                <div class="visual-symbol">&lt;/&gt;</div>
+            </div>
+        </div>
+
+        <div class="floating-tag">
+            <span>✦</span> Creative Developer
+        </div>
+    </div>
+
+</section>
+
+<div class="marquee">
+    <span>HTML</span> ✦
+    <span>CSS</span> ✦
+    <span>WORDPRESS</span> ✦
+    <span>ELEMENTOR</span> ✦
+    <span>WEB DESIGN</span> ✦
+</div>
+
+<section class="about section" id="about">
+
+    <div class="section-heading">
+        <p class="section-label">01 — ABOUT ME</p>
+        <h2>Designing With Purpose.<br>
+            <span>Building With Passion.</span>
+        </h2>
+    </div>
+
+    <div class="about-content">
+        <p>
+            I'm Babar Ameer Ali. I enjoy building websites
+            with modern layouts, clean designs and user-friendly
+            experiences. I work with WordPress, Elementor,
+            HTML and CSS to turn ideas into websites.
+        </p>
+
+        <a href="#contact" class="text-btn">
+            Let's Work Together ↗
+        </a>
+    </div>
+
+</section>
+
+<section class="skills section" id="skills">
+
+    <div class="section-heading">
+        <p class="section-label">02 — WHAT I DO</p>
+        <h2>My Creative <span>Skills.</span></h2>
+        <p class="section-description">
+            Tools and technologies I use to build websites.
+        </p>
+    </div>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <span class="skill-number">01</span>
+            <h3>HTML</h3>
+            <p>Building clear and organized website structures.</p>
+            <span class="skill-icon">&lt;/&gt;</span>
+        </div>
+
+        <div class="skill-card">
+            <span class="skill-number">02</span>
+            <h3>CSS</h3>
+            <p>Creating beautiful layouts, colors and animations.</p>
+            <span class="skill-icon">✳</span>
+        </div>
+
+        <div class="skill-card">
+            <span class="skill-number">03</span>
+            <h3>WordPress</h3>
+            <p>Building websites with a popular CMS platform.</p>
+            <span class="skill-icon">W</span>
+        </div>
+
+        <div class="skill-card">
+            <span class="skill-number">04</span>
+            <h3>Elementor</h3>
+            <p>Designing pages with flexible visual tools.</p>
+            <span class="skill-icon">▦</span>
+        </div>
+
+    </div>
+</section>
+
+<section class="projects section" id="projects">
+
+    <div class="projects-heading">
+        <div class="section-heading">
+            <p class="section-label">03 — SELECTED WORK</p>
+            <h2>My Recent <span>Projects.</span></h2>
+        </div>
+
+        <p class="section-description">
+            A collection of website concepts and designs.
+        </p>
+    </div>
+
+    <div class="project-grid">
+
+        <article class="project-card">
+            <div class="project-preview preview-one">
+                <div class="mock-header">STUDIO<span>.</span></div>
+                <div class="mock-content">
+                    <p>CREATIVE DIGITAL STUDIO</p>
+                    <h3>Build Your<br>Online Presence.</h3>
+                    <span class="mock-button">DISCOVER MORE ↗</span>
+                </div>
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <h3>Business Website</h3>
+                    <p>WordPress · Elementor</p>
+                </div>
+                <span class="project-arrow">↗</span>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-preview preview-two">
+                <div class="shop-top">Z Y V E N</div>
+                <div class="shoe-shape">S</div>
+                <div class="shop-content">
+                    <p>MOVE WITH CONFIDENCE</p>
+                    <h3>STEP INTO<br>YOUR STYLE.</h3>
+                </div>
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <h3>Shoes Store</h3>
+                    <p>WooCommerce · WordPress</p>
+                </div>
+                <span class="project-arrow">↗</span>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-preview preview-three">
+                <div class="portfolio-mark">B<span>.</span></div>
+                <div class="portfolio-content">
+                    <p>PERSONAL PORTFOLIO</p>
+                    <h3>Creative Ideas.<br>Digital Results.</h3>
+                </div>
+                <div class="portfolio-footer">BABAR AMEER ALI</div>
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <h3>Portfolio Website</h3>
+                    <p>HTML · CSS</p>
+                </div>
+                <span class="project-arrow">↗</span>
+            </div>
+        </article>
+
+    </div>
+
+    <p class="project-note">
+        These are sample project concepts. Replace them with
+        screenshots and links to your actual websites.
+    </p>
+
+</section>
+
+<section class="contact section" id="contact">
+
+    <p class="section-label">04 — GET IN TOUCH</p>
+
+    <h2>Have an Idea?<br>
+        <span>Let's Build It.</span>
+    </h2>
+
+    <p>
+        Let's work together to create something modern,
+        useful and memorable.
+    </p>
+
+    <a href="mailto:your-email@example.com" class="primary-btn">
+        Contact Me ↗
+    </a>
+
+<!-- SERVICES SECTION -->
+
+<section class="services section" id="services">
+
+    <div class="section-heading">
+        <p class="section-label">04 — MY SERVICES</p>
+        <h2>What I Can <span>Do For You.</span></h2>
+        <p class="section-description">
+            Creative solutions for your online presence.
+        </p>
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <span>01 / DESIGN</span>
+            <h3>Website Design</h3>
+            <p>
+                Clean, attractive and professional website layouts
+                for your brand or business.
+            </p>
+            <div class="service-symbol">✳</div>
+        </div>
+
+        <div class="service-card">
+            <span>02 / DEVELOPMENT</span>
+            <h3>HTML & CSS</h3>
+            <p>
+                Responsive web pages with modern layouts,
+                elegant colors and smooth effects.
+            </p>
+            <div class="service-symbol">&lt;/&gt;</div>
+        </div>
+
+        <div class="service-card">
+            <span>03 / WORDPRESS</span>
+            <h3>WordPress Websites</h3>
+            <p>
+                Website creation and page design using
+                WordPress and Elementor.
+            </p>
+            <div class="service-symbol">W</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WORK PROCESS SECTION -->
+
+<section class="process section">
+
+    <div class="section-heading">
+        <p class="section-label">05 — MY PROCESS</p>
+        <h2>From Idea To <span>Website.</span></h2>
+    </div>
+
+    <div class="process-grid">
+
+        <div class="process-item">
+            <span>01</span>
+            <h3>Discover</h3>
+            <p>Understand the idea, goals and project requirements.</p>
+        </div>
+
+        <div class="process-item">
+            <span>02</span>
+            <h3>Design</h3>
+            <p>Plan the layout, colors and website appearance.</p>
+        </div>
+
+        <div class="process-item">
+            <span>03</span>
+            <h3>Build</h3>
+            <p>Create the website using suitable web technologies.</p>
+        </div>
+
+        <div class="process-item">
+            <span>04</span>
+            <h3>Improve</h3>
+            <p>Test the website and improve its appearance.</p>
+        </div>
+
+    </div>
+
+
+</section>
+
+<section class="section services" id="services">
+    <div class="section-heading">
+        <p class="label">03 / WHAT I DO</p>
+        <h2>Services That Make<br><span>A Difference.</span></h2>
+    </div>
+
+    <div class="service-list">
+        <article class="service">
+            <span>01</span>
+            <div>
+                <h3>Portfolio Websites</h3>
+                <p>Personal websites to showcase your skills and work.</p>
+            </div>
+            <span class="arrow">↗</span>
+        </article>
+        <article class="service">
+            <span>02</span>
+            <div>
+                <h3>Business Websites</h3>
+                <p>Professional online presence for businesses and brands.</p>
+            </div>
+            <span class="arrow">↗</span>
+        </article>
+        <article class="service">
+            <span>03</span>
+            <div>
+                <h3>WordPress Design</h3>
+                <p>Website layouts created using WordPress and Elementor.</p>
+            </div>
+            <span class="arrow">↗</span>
+        </article>
+        <article class="service">
+            <span>04</span>
+            <div>
+                <h3>Responsive Design</h3>
+                <p>Layouts designed for computers, tablets and mobile phones.</p>
+            </div>
+            <span class="arrow">↗</span>
+        </article>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <a href="#home" class="logo">BABAR<span>.</span></a>
+
+    <p>Designed with passion by Babar Ameer Ali.</p>
+
+    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+
+    <div class="copyright">
+        © 2026 Babar Ameer Ali. All Rights Reserved.
+    </div>
+</footer>
+
+
+
+</body>
+</html>
